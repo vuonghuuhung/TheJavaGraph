@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="627.0" style="-fx-background-color: #3b5998;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DefineGraph">
+    <children>
+        <Label alignment="CENTER" layoutX="92.0" layoutY="68.0" text="The Java Graph" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold Italic" size="59.0" />
+            </font>
+        </Label>
+        <VBox alignment="TOP_CENTER" layoutX="105.0" layoutY="201.0" prefHeight="106.0" prefWidth="168.0" spacing="15.0" AnchorPane.bottomAnchor="94.0">
+            <children>
+                <JFXRadioButton fx:id="dButton" prefHeight="50.0" prefWidth="150.0" text="Directed" textFill="#f2f2f2" textOverrun="CLIP">
+                    <font>
+                        <Font name="Arial Bold" size="19.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="direction" />
+                    </toggleGroup>
+                    <selectedColor>
+                        <Color red="0.05270955339074135" green="0.6315789222717285" blue="0.03274853900074959" />
+                    </selectedColor>
+                    <unSelectedColor>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </unSelectedColor>
+                    <padding>
+                        <Insets bottom="32.0" />
+                    </padding>
+                </JFXRadioButton>
+                <JFXRadioButton fx:id="udButton" prefHeight="50.0" prefWidth="150.0" text="Undirected" textFill="#f2f2f2" textOverrun="CLIP" toggleGroup="$direction">
+                    <font>
+                        <Font name="Arial Bold" size="19.0" />
+                    </font>
+                    <selectedColor>
+                        <Color red="0.05270955339074135" green="0.6315789222717285" blue="0.03274853900074959" />
+                    </selectedColor>
+                    <unSelectedColor>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </unSelectedColor>
+                    <padding>
+                        <Insets bottom="32.0" />
+                    </padding>
+                </JFXRadioButton>
+            </children>
+        </VBox>
+        <Button fx:id="nextButton" layoutX="528.0" layoutY="325.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="70.0" style="-fx-background-color: #3b5998; -fx-background-radius: 50;">
+            <graphic>
+                <ImageView fitHeight="55.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/hiNext.png" />
+               </image></ImageView>
+            </graphic>
+        </Button>
+        <VBox alignment="TOP_CENTER" layoutX="369.0" layoutY="201.0" prefHeight="106.0" prefWidth="180.0" spacing="15.0">
+            <children>
+                <JFXRadioButton fx:id="wButton" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="150.0" text="Weighted" textFill="#f2f2f2" textOverrun="CLIP">
+                    <font>
+                        <Font name="Arial Bold" size="19.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="weight" />
+                    </toggleGroup>
+                    <selectedColor>
+                        <Color red="0.05270955339074135" green="0.6315789222717285" blue="0.03274853900074959" />
+                    </selectedColor>
+                    <unSelectedColor>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </unSelectedColor>
+                    <padding>
+                        <Insets bottom="32.0" />
+                    </padding>
+                </JFXRadioButton>
+                <JFXRadioButton fx:id="uwButton" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="150.0" text="Unweighted" textFill="#f2f2f2" textOverrun="CLIP" toggleGroup="$weight">
+                    <font>
+                        <Font name="Arial Bold" size="19.0" />
+                    </font>
+                    <selectedColor>
+                        <Color red="0.05270955339074135" green="0.6315789222717285" blue="0.03274853900074959" />
+                    </selectedColor>
+                    <unSelectedColor>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </unSelectedColor>
+                    <padding>
+                        <Insets bottom="32.0" />
+                    </padding>
+                </JFXRadioButton>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

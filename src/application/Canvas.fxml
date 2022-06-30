@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXNodesList?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.HiddenSidesPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CanvasController">
+    <children>
+        <StackPane fx:id="stackRoot" prefHeight="680.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane fx:id="border" layoutY="175.0" prefHeight="512.0" prefWidth="1000.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0" />
+                <Group fx:id="canvasGroup" layoutX="-1.0" layoutY="160.0" onMouseClicked="#handle" onMouseDragged="#handle" onMousePressed="#handle" onMouseReleased="#handle">
+                    <children>
+                        <Pane fx:id="viewer" onMouseClicked="#handle" onMouseDragged="#handle" onMousePressed="#handle" onMouseReleased="#handle" prefHeight="525.0" prefWidth="1000.0" style="-fx-background-color: #E0E0E0;">
+                            <cursor>
+                                <Cursor fx:constant="CROSSHAIR" />
+                            </cursor>
+                        </Pane>
+                    </children>
+                </Group>
+                <HiddenSidesPane fx:id="hiddenPane" layoutY="160.0" prefHeight="525.0" prefWidth="1000.0" style="-fx-background-color: #E0E0E0;" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0">
+                    <cursor>
+                        <Cursor fx:constant="CROSSHAIR" />
+                    </cursor>
+                </HiddenSidesPane>
+                <AnchorPane prefHeight="162.0" prefWidth="1000.0" style="-fx-background-color: #3b5998;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <VBox layoutX="8.0" layoutY="11.0" prefHeight="163.0" prefWidth="58.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <JFXButton fx:id="clearButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#ClearHandle" prefHeight="48.0" prefWidth="67.0" style="-fx-background-radius: 50;" text="CLEAR" textFill="#d3c5c5">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/clear.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="resetButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#ResetHandle" prefHeight="48.0" prefWidth="67.0" style="-fx-background-radius: 50;" text="RESET" textFill="#d3c5c5">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/recycle.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="canvasBackButton" contentDisplay="GRAPHIC_ONLY" prefHeight="50.0" prefWidth="49.0" style="-fx-background-radius: 50;" text="Button">
+                                    <font>
+                                        <Font name="Javanese Text" size="13.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fx:id="canvasBack" fitHeight="41.0" fitWidth="46.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../image/hiBack.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="115.0" prefHeight="163.0" prefWidth="176.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="176.0" text="Graph Traversals" textFill="#f7f3f3">
+                                    <font>
+                                        <Font name="System Bold Italic" size="19.0" />
+                                    </font>
+                                </Label>
+                                <JFXToggleButton id="spec" fx:id="bfsButton" alignment="BASELINE_CENTER" onAction="#BFSHandle" prefHeight="46.0" prefWidth="171.0" size="9.0" text="BFS" textFill="#fcfcfc" toggleColor="#ff5722" toggleLineColor="#ffab91" unToggleColor="#546e7a" unToggleLineColor="#90a4ae">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets right="30.0" />
+                                    </padding>
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="aloToggleGroup" />
+                                    </toggleGroup>
+                                </JFXToggleButton>
+                                <JFXToggleButton fx:id="dfsButton" alignment="BASELINE_CENTER" onAction="#DFSHandle" prefHeight="46.0" prefWidth="173.0" size="9.0" text="DFS" textFill="#fcfcfc" toggleColor="#ff5722" toggleGroup="$aloToggleGroup" toggleLineColor="#ffab91" unToggleColor="#546e7a" unToggleLineColor="#90a4ae">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets right="30.0" />
+                                    </padding>
+                                </JFXToggleButton>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="303.0" prefHeight="110.0" prefWidth="222.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="222.0" text="Minimum spanning tree" textFill="#f7f3f3">
+                                    <font>
+                                        <Font name="System Bold Italic" size="19.0" />
+                                    </font>
+                                </Label>
+                                <JFXToggleButton fx:id="mstButton" alignment="BASELINE_CENTER" onAction="#MSTHandle" prefHeight="46.0" prefWidth="176.0" size="9.0" text="MST" textFill="#fcfcfc" toggleColor="#ff5722" toggleGroup="$aloToggleGroup" toggleLineColor="#ffab91" unToggleColor="#546e7a" unToggleLineColor="#90a4ae">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="8.0" right="30.0" />
+                                    </padding>
+                                </JFXToggleButton>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="713.0" layoutY="-5.0" prefHeight="120.0" prefWidth="190.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="180.0" text="Topological Sort" textFill="#f7f3f3">
+                                    <font>
+                                        <Font name="System Bold Italic" size="19.0" />
+                                    </font>
+                                </Label>
+                                <JFXToggleButton fx:id="topSortButton" alignment="BASELINE_CENTER" onAction="#TopSortHandle" prefHeight="46.0" prefWidth="192.0" size="9.0" text="TopoSort" textFill="#fcfcfc" toggleColor="#ff5722" toggleGroup="$aloToggleGroup" toggleLineColor="#ffab91" unToggleColor="#546e7a" unToggleLineColor="#90a4ae">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="19.0" right="30.0" />
+                                    </padding>
+                                </JFXToggleButton>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="532.0" layoutY="-5.0" prefHeight="110.0" prefWidth="190.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="180.0" text="Shortest path" textFill="#f7f3f3">
+                                    <font>
+                                        <Font name="System Bold Italic" size="19.0" />
+                                    </font>
+                                </Label>
+                                <JFXToggleButton fx:id="dijkstraButton" alignment="BASELINE_CENTER" onAction="#DijkstraHandle" prefHeight="46.0" prefWidth="172.0" size="9.0" text="Dijkstra" textFill="#fcfcfc" toggleColor="#ff5722" toggleGroup="$aloToggleGroup" toggleLineColor="#ffab91" unToggleColor="#546e7a" unToggleLineColor="#90a4ae">
+                                    <font>
+                                        <Font name="Arial Bold" size="16.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="30.0" right="30.0" />
+                                    </padding>
+                                </JFXToggleButton>
+                            </children>
+                        </VBox>
+                        <Pane layoutX="627.0" layoutY="95.0" prefHeight="70.0" prefWidth="294.0" style="-fx-background-color: #3b5998; -fx-background-radius: 15;" AnchorPane.bottomAnchor="0.0">
+                            <children>
+                                <HBox layoutX="3.0" layoutY="6.0" prefHeight="58.0" prefWidth="287.0" spacing="10.0" style="-fx-background-radius: 20; -fx-background-color: #3b5998;">
+                                    <children>
+                                        <JFXToggleButton fx:id="addNodeButton" onAction="#AddNodeHandle" prefHeight="58.0" prefWidth="142.0" text="Add Node" textFill="#faf8f8" toggleGroup="$aloToggleGroup">
+                                            <font>
+                                                <Font name="Arial Bold" size="13.0" />
+                                            </font>
+                                        </JFXToggleButton>
+                                        <JFXToggleButton fx:id="addEdgeButton" onAction="#AddEdgeHandle" prefHeight="58.0" prefWidth="145.0" text="Add Edge" textFill="#faf8f8" toggleGroup="$aloToggleGroup">
+                                            <font>
+                                                <Font name="Arial Bold" size="13.0" />
+                                            </font>
+                                        </JFXToggleButton>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </Pane>
+                        <JFXButton fx:id="playPauseButton" contentDisplay="GRAPHIC_ONLY" layoutX="326.0" layoutY="103.0" onAction="#PlayPauseHandle" prefHeight="30.0" prefWidth="40.0" style="-fx-background-radius: 100; -fx-background-color: #3b5998;">
+                            <tooltip>
+                                <Tooltip text="Pause" textAlignment="CENTER">
+                                    <font>
+                                        <Font size="112.5" />
+                                    </font>
+                                </Tooltip>
+                            </tooltip>
+                            <padding>
+                                <Insets right="5.0" />
+                            </padding>
+                            <graphic>
+                                <ImageView fx:id="playPauseImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/pause-button.png" />
+                           </image></ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXNodesList fx:id="nodeList" layoutX="381.0" layoutY="103.0" prefHeight="60.0" prefWidth="60.0">
+                            <children>
+                                <JFXButton fx:id="gear" contentDisplay="GRAPHIC_ONLY" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: #3b5998;">
+                                    <graphic>
+                                        <ImageView fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/time.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                                    <tooltip>
+                                        <Tooltip text="Change Animation Speed" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="12.5" />
+                                            </font>
+                                        </Tooltip>
+                                    </tooltip>
+                                    <padding>
+                                        <Insets left="5.0" />
+                                    </padding>
+                                </JFXButton>
+                            </children>
+                        </JFXNodesList>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <ImageView fx:id="openHidden" fitHeight="44.0" fitWidth="118.0" layoutX="6.0" layoutY="382.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@../image/openHidden.png" />
+         </image></ImageView>
+    </children>
+</AnchorPane>
